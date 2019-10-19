@@ -1,6 +1,6 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
-        my_hashmap = {
+        my_hashtable = {
             "I": 1,
             "V": 5,
             "X": 10,
@@ -19,5 +19,5 @@ class Solution:
             out-= 200
             
         for i in s:
-            out += my_hashmap.get(i)
+            out += my_hashtable.get(i)
         return out

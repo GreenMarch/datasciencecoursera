@@ -6,6 +6,13 @@ class Solution:
             # print("i: " + str(i))
             # print("parag: " + str(paragraph))
         paragraph = [word for word in paragraph.lower().split()]
+        
+        
+#         paragraph = list(filter(lambda x: x not in set(banned), paragraph))
+#         my_out = Counter(paragraph).most_common(1)
+#         return my_out[0][0]
+        
+        
         #print("parag: " + str(paragraph))
         c = Counter(paragraph)
         out = ""

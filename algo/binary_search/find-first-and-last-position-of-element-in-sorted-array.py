@@ -39,6 +39,10 @@ data2 = [5,7,7,8,8,10]
 k2 = 8
 Solution().searchRange(data2,k2)
 
+data3 = [1,2,5,5,5,9]
+k3 = 5
+Solution().searchRange(data3,k3)
+
 34. Find First and Last Position of Element in Sorted Array
 Medium
 

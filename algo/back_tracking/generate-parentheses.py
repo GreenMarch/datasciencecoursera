@@ -52,7 +52,8 @@ class Solution(object):
 
         backtrack()
         return ans
-        def generateParenthesis3(self, n):
+    
+    def generateParenthesis3(self, n):
         if not n:
             return []
         left, right, ans = n, n, []

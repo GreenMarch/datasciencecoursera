@@ -11,3 +11,13 @@ class Solution:
             else:
                 l = pivot + 1
         return r
+
+    
+    """
+Complexity Analysis
+
+Time complexity : O(logN).
+
+Space complexity : O(1).
+
+"""

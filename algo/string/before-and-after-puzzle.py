@@ -5,16 +5,21 @@ class Solution(object):
         :rtype: List[str]
         """
     	P, F, A = [], {}, set()
-    	for i in phrases: P.append(i.split())
+    	for i in phrases: 
+            P.append(i.split())
     	for i,j in enumerate(P):
     		a = j[0]
-    		if a in F: F[a].append(i)
-    		else: F[a] = [i]
+    		if a in F: 
+                F[a].append(i)
+    		else: 
+                F[a] = [i]
     	for i,j in enumerate(P):
     		b = j[-1]
-    		if b not in F: continue
+    		if b not in F: 
+                continue
     		for k in F[b]:
-    			if i == k: continue
+    			if i == k: 
+                    continue
     			A.add(" ".join(j + P[k][1:]))
     	return sorted(A)
       

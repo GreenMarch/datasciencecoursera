@@ -6,7 +6,7 @@ class Solution:
                 d[nums[i]] = i
             else:
                 return [d[target - nums[i]],i]
-            
+
 """
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
@@ -17,4 +17,4 @@ class Solution:
 
 nums = [2, 7, 11, 15]
 target = 9
-Solution().twoSum_h(nums, target)
+print(Solution().twoSum_h(nums, target))

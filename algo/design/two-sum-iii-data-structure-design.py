@@ -36,3 +36,10 @@ class TwoSum:
 # obj = TwoSum()
 # obj.add(number)
 # param_2 = obj.find(value)
+
+obj = TwoSum()
+print(obj.add(1),
+    obj.add(3),
+    obj.add(5),
+    obj.find(4),
+    obj.find(7))

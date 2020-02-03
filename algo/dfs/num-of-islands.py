@@ -29,7 +29,7 @@ class Solution:
         self.dfs(grid, i, j - 1)
 
 
-
+"""
             # not pass
     def dfs(self, grid, i, j):
         if i<0 or j<0 or i>=len(grid) or j>=len(grid[0]) or grid[i][j] != '1':
@@ -66,6 +66,7 @@ class Solution:
             nc = c + d[1]
             if self.isValid(grid, nr, nc) and grid[nr][nc] == '1':
                 self.dfs(grid, nr, nc)
+"""
 """
 200. Number of Islands
 Medium

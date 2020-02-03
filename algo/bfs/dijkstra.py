@@ -12,15 +12,16 @@ mygraph = {
 
 
 def init_distance(graph, s):
-    distance = {s: 0}
+	distance = {s: 0}
     for vertex in graph:
         if vertex != s:
             distance[vertex] = math.inf
     return distance
 
+
 def dijkstra(graph, s):
     pqueue = []
-	heapq.heappush(pqueue, (0, s))
+	heapq.heappush(pqueue,(0, s))
 	seen = set()
 	parent = {s: None}
 	distance = init_distance(graph, s)

@@ -14,8 +14,11 @@ class Solution:
             print(nums[left:right + 1])
             ans += right - left + 1
         return ans
-
-
+"""
+0,1,2,3
+10,5,2,6
+0,0,10
+"""
 inputdata = [10, 5, 2, 6]
 val = 100
 print(Solution().numSubarrayProductLessThanK(inputdata, val))

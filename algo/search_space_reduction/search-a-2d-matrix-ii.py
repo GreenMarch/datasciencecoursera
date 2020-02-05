@@ -5,6 +5,8 @@ class Solution:
         :type target: int
         :rtype: bool
         """
+        if not matrix:
+            return False
         height, width = len(matrix), len(matrix[0])
 
         row = height - 1

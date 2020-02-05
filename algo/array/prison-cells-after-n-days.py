@@ -1,5 +1,5 @@
 class Solution:
-    def prisonAfterNDays(self, cells: List[int], N: int) -> List[int]:
+    def prisonAfterNDays(self, cells, N):
 
         while N > 0:
             cells2 = []
@@ -11,8 +11,14 @@ class Solution:
             cells = cells2
             N = (N - 1)%14 # needed or else timeout
             # N = N - 1 # brute force
-        return cells;
+        return cells
 
+
+
+cells = [0,1,0,1,1,0,0,1]
+N = 7
+print(Solution().prisonAfterNDays(cells, N))
+"""
 class Solution:
     def prisonAfterNDays(self, cells: List[int], N: int) -> List[int]:
 
@@ -84,3 +90,4 @@ Note:
 cells.length == 8
 cells[i] is in {0, 1}
 1 <= N <= 10^9
+"""

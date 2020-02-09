@@ -25,7 +25,7 @@ class Solution(object):
 class Solution(object):
     def maxDepth(self, root):
         stack = []
-        if root: stack.append((root, 1))
+        if root: stack.append((root, 0))
         depth = 0
         while stack:
             (node, d) = stack.pop()
@@ -33,3 +33,19 @@ class Solution(object):
             for child in node.children:
                 stack.append((child, d+1))
         return depth
+
+class Solution {
+    public:
+        int
+
+    maxDepth(Node * root)
+    {
+    if (root == nullptr)
+    return 0;
+    int
+    depth = 0;
+    for (auto child: root->children) depth = max(depth, maxDepth(child));
+    return 1 + depth;
+
+}
+};

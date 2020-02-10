@@ -41,7 +41,17 @@ Return true if and only if the nodes corresponding to the values x and y are cou
 
 
 
-[1,2,3,4]
-4
-3
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = None
+root.left.right = TreeNode(4)
+root.right.left = None
+root.right.right = TreeNode(5)
+
+Input: root = [1,2,3,null,4,null,5], x = 5, y = 4
+Output: true
+
+Solution().isCousins(root, 4, 5)
+#Solution().getImportance_bfs(e, i)
 """

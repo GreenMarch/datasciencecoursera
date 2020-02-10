@@ -10,19 +10,61 @@ class Employee(object):
         # the id of direct subordinates
         self.subordinates = subordinates
 """
+# 690. Employee Importance, final
 class Solution(object):
     def getImportance(self, employees, id):
-        """
-        :type employees: Employee
-        :type id: int
-        :rtype: int
-        """
         emap = {e.id: e for e in employees}
+        def dfs(e_id):
+            # if not eid:
+            #     return 0
+            e = emap[e_id]
+            stack = []
+            for sub_e_id in e.subordinates:
+                # curr_imp = dfs(sub_e_id)
+                stack.append(dfs(sub_e_id))
+            return sum(stack) + e.importance if stack else e.importance
+        return dfs(id)
+
+class Solution(object):
+    def getImportance(self, employees, id):
+        emap = {e.id: e for e in employees}
+        def dfs(e_id):
+            # if not eid:
+            #     return 0
+            e = emap[e_id]
+            stack = []
+            importance_sum = e.importance
+            for sub_e_id in e.subordinates:
+                curr_imp = dfs(sub_e_id) # works for [[1, 5, [2, 3]], [2, 3, [4]], [3, 3, []], [4, 10, []]]
+                #stack.append(dfs(sub_e_id))
+                importance_sum += curr_imp
+            return importance_sum
+        return dfs(id)
+
+
+
+
+# 690. Employee Importance
+class Solution(object):
+    def getImportance_dfs(self, employees, id):
+        emap = {e.id: e for e in employees}
+        def dfs(e_id):
+            # if not eid:
+            #     return 0
+            e = emap[e_id]
+            stack = []
+            importance_sum = 0
+            for e_id in e.subordinates:
+                stack.append(dfs(e_id)) # missing one more layer for "4" in [[1, 5, [2, 3]], [2, 3, [4]], [3, 3, []], [4, 10, []]]
+            return sum(dfs(e_id)) + e.importance if e.subordinates else e.importance
+        return dfs(id)
+"""
         def dfs(eid):
             employee = emap[eid]
             return (employee.importance +
                     sum(dfs(eid) for eid in employee.subordinates))
         return dfs(id)
+        """
         
 """
 690. Employee Importance

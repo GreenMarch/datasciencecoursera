@@ -1,20 +1,19 @@
-class Solution:
+class Solution(object):
     def getImportance(self, employees, id):
-        employee_dict = dict()
-        queue = [id]
+        emap = {e.id: e for e in employees}
+        # employee_dict = dict()
+        # for e in employees:
+        # 	employee_dict[e.id] = e
+        queue = []
+        queue.append(id)
         importance_sum = 0
-
-        for employee in employees:
-            employee_dict[employee.id] = employee
-            
-        while(queue):
-            employee_index = queue.pop(0)
-            employee = employee_dict[employee_index]
-            importance_sum += employee.importance
-            queue.extend(employee.subordinates)
-        
+        while queue:
+            e_id = queue.pop(0)
+            e = emap[e_id]
+            importance_sum += e.importance
+            queue.extend(e.subordinates)
         return importance_sum
-        
+
 """
 690. Employee Importance
 Easy

@@ -1,11 +1,18 @@
+from collections import Counter
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        from collections import Counter
         result = Counter(nums).most_common(k)
         out = [None]*k
         for i in range(k):
             out[i] = result[i][0]
         return out
+
+from collections import Counter
+class Solution:
+    def topKFrequent(self, words: List[str], k: int) -> List[str]:
+        count = Counter(words)
+        top_k = list(zip(*count.most_common(k)))[0]
+        return top_k
         
 """
 347. Top K Frequent Elements

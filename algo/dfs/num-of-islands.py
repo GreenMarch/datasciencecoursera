@@ -99,3 +99,5 @@ Input:
 
 Output: 3
 """
+inputdata = [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
+print(Solution().numIslands2(inputdata))

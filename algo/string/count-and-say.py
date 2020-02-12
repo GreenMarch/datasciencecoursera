@@ -24,8 +24,8 @@ class Solution(object):
 
         # add a delimiter for the next sequence
         nextSeq.append('E')
-
+        print("n="+str(n))
         return self.nextSequence(n - 1, nextSeq)
 
 
-print(Solution().countAndSay(1211))
+print(Solution().countAndSay(3))

@@ -1,19 +1,22 @@
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 class Solution:
-    def rightSideView(self, root: TreeNode, res = []) -> List[int]:
-        if root:
-            res.append(root.val)
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        if not root:
+            return []
         else:
-            return res
-        if root.right:
-            res = self.rightSideView(root.right)
-        return res
+            left = self.rightSideView(root.left)
+            right = self.rightSideView(root.right)
+            if len(right) >= len(left):
+                return [root.val] + right
+            else:
+                return [root.val] + right + left[len(right):]
+
 
 """
 199. Binary Tree Right Side View

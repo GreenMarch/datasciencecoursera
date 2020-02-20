@@ -3,10 +3,15 @@ class Solution:
     def minMeetingRooms(self, intervals):
         h = []
         for i in sorted(intervals):
+            print(i,intervals)
             if h == [] or h[0] > i[0]:
+                print("== or >", h, i[0])
                 heappush(h, i[1])
+                print("heap is", h)
             else:
+                print("else", h[0], i[1])
                 heapreplace(h, i[1])
+                print("heap is", h)
         return len(h)
 
 inputdata = [[0,30],[5,10],[15,20]]

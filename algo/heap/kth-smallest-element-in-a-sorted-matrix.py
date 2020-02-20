@@ -1,6 +1,6 @@
 import heapq
 class Solution:
-    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
+    def kthSmallest(self, matrix, k):
         nums = []
         for row in matrix:
             for val in row:

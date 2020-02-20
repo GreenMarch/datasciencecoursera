@@ -47,3 +47,6 @@ class Solution:
 data = [[2,1,5],[3,3,7]]
 k = 4
 print(Solution().carPooling(data, k))
+data = [[2,1,5],[3,3,7]]
+k = 5
+print(Solution().carPooling(data, k))

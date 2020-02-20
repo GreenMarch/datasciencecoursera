@@ -22,8 +22,8 @@ class KthLargest:
 k = 3
 arr = [4,5,8,2]
 kthLargest = KthLargest(3, arr)
-kthLargest.add(3)   #// returns 4
-kthLargest.add(5)   #// returns 5
-kthLargest.add(10)  #// returns 5
-kthLargest.add(9)   #// returns 8
-kthLargest.add(4)   #// returns 8
+print(kthLargest.add(3)) #// returns 4
+print(kthLargest.add(5))   #// returns 5
+print(kthLargest.add(10))  #// returns 5
+print(kthLargest.add(9)) #// returns 8
+print(kthLargest.add(4))   #// returns 8

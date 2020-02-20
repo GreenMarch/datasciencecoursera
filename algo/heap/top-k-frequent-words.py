@@ -4,7 +4,7 @@ import heapq
 
 class Solution:
     def topKFrequent(self, words, k):
-        count = Counter(words)
+        count = Counter(sorted(words))
         # return list(zip(*count.most_common(k)))[0]
         heap = []
 

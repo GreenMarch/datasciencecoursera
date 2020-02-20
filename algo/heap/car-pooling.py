@@ -45,4 +45,5 @@ class Solution:
         return True
 
 data = [[2,1,5],[3,3,7]]
-print(Solution().carPooling(data))
+k = 4
+print(Solution().carPooling(data, k))

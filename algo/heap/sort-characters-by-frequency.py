@@ -10,7 +10,7 @@ class Solution:
 
 
 class Solution:
-    def frequencySort(self, s: str) -> str:
+    def frequencySort(self, s):
         # letters = [char for char in s.split()]
         letters = list(s)
         count = Counter(letters)
@@ -30,7 +30,7 @@ class Solution:
 data = "tree"
 print(Solution().frequencySort(data))
 
-        """
+"""
         letters = [char for char in s.split()]
         print("letters",letters)
         count = Counter(letters)
@@ -57,4 +57,4 @@ print(Solution().frequencySort(data))
             result += count * (dic[count])
 
         return result
-        """
+"""

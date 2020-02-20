@@ -1,5 +1,6 @@
+from heapq import heappush, heappop, heapify
 class Solution:
-    def lastStoneWeight(self, stones: List[int]) -> int:
+    def lastStoneWeight(self, stones):
         if len(stones) == 1:
             print("len is one")
             print(str(stones))
@@ -7,20 +8,23 @@ class Solution:
         else:
             for idx, val in enumerate(stones):
                 stones[idx] = val*-1
-            heapq.heapify(stones)
+            heapify(stones)
             res = 0
             while len(stones) > 1:
-                stone1 = heapq.heappop(stones)
-                stone2 = heapq.heappop(stones)
+                stone1 = heappop(stones)
+                stone2 = heappop(stones)
                 if stone1 == stone2:
                     continue
                 else:
                     res = stone1 - stone2
-                    heapq.heappush(stones, res)
+                    heappush(stones, res)
             if stones:
                 return stones[0]*-1
             else:
                 return 0
+
+inputdata = [2,7,4,1,8,1]
+print(Solution().lastStoneWeight(inputdata))
 """
 1046. Last Stone Weight
 Easy

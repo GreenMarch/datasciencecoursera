@@ -3,7 +3,7 @@ import heapq
 class Solution:
     def highFive(self, items):
         res = []
-        data = collections.defaultdict(items)
+        data = collections.defaultdict(list)
         
         for id, score in items:
             heapq.heappush(data[id], score)

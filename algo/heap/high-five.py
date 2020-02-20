@@ -1,8 +1,7 @@
-
+import collections
+import heapq
 class Solution:
-    def highFive2(self, items):
-        import collections
-        import heapq
+    def highFive(self, items):
         res = []
         data = collections.defaultdict(list)
         
@@ -11,11 +10,11 @@ class Solution:
             
         for id, scores in data.items():
             avg = sum(heapq.nlargest(5, scores))//5
-            res.append((id, avg,))
+            res.append([id, avg])
             
         return res
         
-
+"""
     def highFive(self, items):
         d = {}
         for i in items:
@@ -35,4 +34,4 @@ class Solution:
 data = [[1,91],[1,92],[2,93],[2,97],[1,60],[2,77],[1,65],[1,87],[1,100],[2,100],[2,76]]
 Solution().highFive(data)
 Solution().highFive2(data)
-
+"""

@@ -1,9 +1,10 @@
 from heapq import heappop, heappush, heapify
 
+
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         if len(stones) == 1:
-            return stones
+            return stones[0]
         else:
             for i, v in enumerate(stones):
                 stones[i] = v * -1
@@ -15,7 +16,8 @@ class Solution:
                 if s1 == s2:
                     continue
                 else:
-                    res = s1 - s2 if s1 < s2 else s2 - s1
+                    print(s1, s2)
+                    res = s1 - s2  # @if s1 < s2 else s2 - s1
                     heappush(stones, res)
             if stones:
                 return stones[0] * -1

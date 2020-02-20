@@ -30,8 +30,8 @@ class Solution:
             s = s//5
             re.append([i,s])
         return re
-    
-data = [[1,91],[1,92],[2,93],[2,97],[1,60],[2,77],[1,65],[1,87],[1,100],[2,100],[2,76]]
-Solution().highFive(data)
-Solution().highFive2(data)
 """
+data = [[1,91],[1,92],[2,93],[2,97],[1,60],[2,77],[1,65],[1,87],[1,100],[2,100],[2,76]]
+print(Solution().highFive(data))
+# Solution().highFive2(data)
+

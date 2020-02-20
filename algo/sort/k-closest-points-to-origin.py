@@ -1,6 +1,16 @@
+import heapq
 class Solution:
-    def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
-        return sorted(points, key=lambda p: p[0] ** 2 + p[1] ** 2)[:K]
+    def kClosest(self, points, K):
+        heap = []
+        for p in points:
+            heapq.heappush(heap, p)
+        return heapq.nsmallest(K, heap)
+
+points = [[1, 3], [-2, 2]]
+K = 1
+print(Solution().kClosest(points, K))
+    # def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+    #     return sorted(points, key=lambda p: p[0] ** 2 + p[1] ** 2)[:K]
 
 """
 973. K Closest Points to Origin

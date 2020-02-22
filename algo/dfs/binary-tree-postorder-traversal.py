@@ -21,7 +21,6 @@ class Solution:
 
                 if root.right:
                     stack.append(root.right)
-
         return res[::-1]
 
 """

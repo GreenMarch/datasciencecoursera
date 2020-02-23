@@ -1,5 +1,9 @@
 class Solution:
-    def pacificAtlantic(self, matrix: List[List[int]]) -> List[List[int]]:
+    def pacificAtlantic(self, matrix):
+        """
+        :param matrix: List[List[int]]
+        :return: List[List[int]]
+        """
         if not matrix:
             return []
         p_land = set()

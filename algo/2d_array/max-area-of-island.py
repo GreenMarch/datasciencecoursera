@@ -1,15 +1,11 @@
 from collections import deque
-
-
 class Solution:
-    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+    def maxAreaOfIsland(self, grid):
         R, C = len(grid), len(grid[0])
-        queue = deque()
         size_max = 0
         for i in range(R):
             for j in range(C):
                 if grid[i][j] == 1:
-                    # size, size_max = 1, 1
                     print("find", i, j)
                     grid[i][j] = 0
                     size_max = max(self.bfs(i, j, grid), size_max)

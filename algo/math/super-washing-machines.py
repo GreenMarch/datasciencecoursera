@@ -3,7 +3,11 @@ class Solution:
     #     if sum(machines) % len(machines) != 0:
     #         return -1
 
-    def findMinMoves(self, machines: List[int]) -> int:
+    def findMinMoves(self, machines):
+        """
+        :param machines: List[int]
+        :return: int
+        """
         n = len(machines)
         dress_total = sum(machines)
         if dress_total % n != 0:

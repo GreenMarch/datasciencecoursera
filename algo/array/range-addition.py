@@ -1,12 +1,23 @@
 class Solution:
-    def getModifiedArray(self, length: int, updates: List[List[int]]) -> List[int]:
-        arr = [0]*length
-        for updt in updates:
-            start, end, inc = updt[0], updt[1], updt[2]
-            for i in range(start, end + 1):
-                arr[i] += inc
-            # print("updt", updt, "arr", arr)
-        return arr
+    # TLE
+    #     def getModifiedArray(self, length: int, updates: List[List[int]]) -> List[int]:
+    #         arr = [0]*length
+    #         for updt in updates:
+    #             start, end, inc = updt[0], updt[1], updt[2]
+    #             for i in range(start, end + 1):
+    #                 arr[i] += inc
+    #             # print("updt", updt, "arr", arr)
+    #         return arr
+
+    def getModifiedArray(self, length, updates):
+        arr = [0] * (length + 1)
+        for start, end, inc in updates:
+            arr[start] += inc
+            arr[end + 1] -= inc
+        for i in range(1, length + 1):
+            arr[i] = arr[i] + arr[i - 1]
+        return arr[:-1]
+
 
 """
 370. Range Addition

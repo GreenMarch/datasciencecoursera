@@ -2,7 +2,7 @@ class Solution:
     def twoSum_h(self, nums, target):
         d = {}
         for i in range(len(nums)):
-            if target - nums[i] not in d:
+            if int(target - nums[i]) not in d:
                 d[nums[i]] = i
             else:
                 return [d[target - nums[i]],i]

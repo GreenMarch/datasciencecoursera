@@ -1,4 +1,31 @@
-class Solution:
+from collections import deque
+class Solution_bfs:
+    def numIslands2(self, grid):
+        """
+        :type grid: List[List[str]]
+        :rtype: int
+        """
+        if not grid:
+            return 0
+        queue = deque([])
+        count = 0  # to count number of islands
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == '1':
+                    queue.append((i, j))
+                    while queue:
+                        point = queue.popleft()
+                        r, c = point[0], point[1]
+                        for x, y in [r - 1, c],[r + 1, c],[r, c - 1],[r, c + 1]:
+                            print("x, y", x, y)
+                        if 0 <= x < len(grid) and 0 <= y < len(grid[0]) and grid[x][y] == '1':
+                            grid[x][y] = "0"
+                            queue.append((x,y))
+                            count = count + 1  # increment the number of islands
+        return count
+
+from collections import deque
+class Solution_dfs:
     # pass
     def numIslands2(self, grid):
         """
@@ -100,4 +127,6 @@ Input:
 Output: 3
 """
 inputdata = [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
-print(Solution().numIslands2(inputdata))
+inputdata = [["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
+
+print(Solution_bfs().numIslands2(inputdata))

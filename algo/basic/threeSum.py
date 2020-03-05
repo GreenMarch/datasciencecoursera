@@ -1,5 +1,9 @@
 class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums):
+        """
+        :param nums: List[int]
+        :return: List[List[int]]
+        """
         nums.sort()
         out = set()
         for i in range(len(nums)):

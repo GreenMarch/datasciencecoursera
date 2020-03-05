@@ -7,12 +7,12 @@ class Solution(object):
         """
         order_index = {c: i for i, c in enumerate(order)}
 
-        for i in xrange(len(words) - 1):
+        for i in range(len(words) - 1):
             word1 = words[i]
             word2 = words[i+1]
 
             # Find the first difference word1[k] != word2[k].
-            for k in xrange(min(len(word1), len(word2))):
+            for k in range(min(len(word1), len(word2))):
                 # If they compare badly, it's not sorted.
                 if word1[k] != word2[k]:
                     if order_index[word1[k]] > order_index[word2[k]]:

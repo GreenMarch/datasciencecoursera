@@ -13,8 +13,14 @@ We can avoid the set subtraction in "root = (set(range(n)) - seen).pop()" by usi
 
 import collections
 class Solution:
-    def validateBinaryTreeNodes(self,
-                                n: int, leftChild: List[int], rightChild: List[int]) -> bool:
+    def validateBinaryTreeNodes(self, n, leftChild, rightChild) -> bool:
+        """
+
+        :param n: int
+        :param leftChild: List[int]
+        :param rightChild: List[int]
+        :return: bool
+        """
 
         # First, check for a root, ie, a node with no parents.
         # At the same time, check the necessary condition that there must be

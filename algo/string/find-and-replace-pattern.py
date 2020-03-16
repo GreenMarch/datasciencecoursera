@@ -19,7 +19,7 @@ class Solution:
                     print("matched,",(m1[w], m2[p]),(p, w))
             return True
 
-        return filter(match, words)
+        return list(filter(match, words))
 
 
 input_words = ["abc","deq","mee","aqq","dkd","ccc"]

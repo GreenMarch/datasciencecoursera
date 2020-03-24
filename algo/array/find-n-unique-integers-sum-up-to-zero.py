@@ -1,5 +1,9 @@
 class Solution:
-    def sumZero(self, n: int) -> List[int]:
+    def sumZero(self, n:):
+        """
+        :param n: int
+        :return: List[int]
+        """
         L, rem = n // 2, n % 2
         if rem != 0:
             ans = [0]

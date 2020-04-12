@@ -6,10 +6,11 @@ population = ["A", "B","C"]
 weights = [0.2, 0.5, 0.3]
 
 million_samples = choices(population, weights, k=10**3)
+
 from collections import Counter
 c = Counter(million_samples)
-print(c)
-# Counter({5: 399616, 6: 200387, 4: 200117, 1: 99636, 3: 50219, 2: 50025})
+print(c.most_common())
+print(sorted(c.items()))
 """
 print(choices(population, weights))
 print(choices(population, weights))

@@ -1,30 +1,30 @@
-from collections import deque
-
 class Solution:
     def trap(self, height):
         """
         :param height: List[int]
         :return: int
         """
-        ans = 0
-        i = 0
         stack = []
-        while i < len(height):
-            # monotonic stack
-            # if stack is empty or current height is lower than the top element of the stack
-            # push the index into the stack
-            if not stack or height[i] <= height[stack[-1]]:
-                stack.append(i)
-                i += 1
-            else:
-                bottom = stack.pop()
-                if not stack:
-                    continue
-                distance = i - stack[-1] - 1  # remember to decrease 1
-                bounded_height = min(height[i], height[stack[-1]]) - height[bottom]
-                ans += distance * bounded_height
-        return ans
+        begin, result = 0, 0
+        # while begin < len(height) and height[begin] == 0:
+        #     begin += 1
+        #     print("begin",begin)
+        for i in range(begin, len(height)):
+            print("i",i)
+            print("current stk", stack)
+            while stack and height[i] > height[stack[-1]]:
+                print("in while loop")
+                valley = height[stack.pop()]
+                print("valley",valley)
+                if stack:
+                    result += min(height[i], height[stack[-1]] - valley) * (i - stack[-1] - 1)
+                    print("i,stack peek",i,stack[-1])
+                    print("width",i - stack[-1] - 1)
+                    print("current stk 2", stack)
+            stack.append(i)
+            print("current stk 3", stack)
+        return result
 
-input = [0,1,0,2,1,0,1,3,2,1,2,1]
+input = [2,1,0,1,3]
 output = Solution().trap(input)
 print(output)

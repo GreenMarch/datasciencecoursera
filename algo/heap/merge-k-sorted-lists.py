@@ -47,3 +47,31 @@ Input:
 Output: 1->1->2->3->4->4->5->6
 
 """
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+from heapq import heappop, heappush
+
+
+class Solution:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+
+        values, head, pointer = [], None, None
+
+        for l in lists:
+            while l:
+                heappush(values, l.val)
+                l = l.next
+        print("values", values)
+        while values:
+            if head == None:
+                head = ListNode(heappop(values))
+                pointer = head
+            else:
+                pointer.next = ListNode(heappop(values))
+                pointer = pointer.next
+
+        return head

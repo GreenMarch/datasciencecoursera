@@ -1,0 +1,138 @@
+# https://www.cnblogs.com/grandyang/p/4475985.html
+class Solution:
+    def longestPalindrome(self, s):
+        """
+        :param s: str
+        :return: str
+        """
+        modified = "$#" + '#'.join(list(s)) + "#!"
+        P = [0] * len(modified)  # [0,0,0......,0]
+        max_P, longPalindromic = 0, 0 # max_P 是回文串能延伸到的最右端的位置,
+        C, R = 1, 1 # center, right
+        for i in range(1, len(modified) - 2):
+            mirr = C - (i - C) # locate mirror place for current center.
+            if i < R:
+                P[i] = min(R - i, P[mirr]) # As I mention above, if it's in range P[i]>=P[mirror place]
+            while modified[i + 1 + P[i]] == modified[i - 1 - P[i]]:#since P[i]>=P[mirror place] we only have to check the character out of P[i]
+                P[i] += 1
+                print("in while loop",i,P[i])
+            if i + P[i] > R:#If outside the range we should find our new center
+                C = i
+                R = C + P[C]
+            if P[i] >= max_P:#record Longest Palindromic Substring
+                max_P = P[i]
+                longPalindromic = i
+        ans = ''.join(modified[longPalindromic - max_P : longPalindromic + max_P].split('#'))
+        return ans
+
+
+input = "acdc"
+print(Solution().longestPalindrome(input))
+
+"""
+5. Longest Palindromic Substring
+Medium
+
+5961
+
+487
+
+Add to List
+
+Share
+Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+
+Example 1:
+
+Input: "babad"
+Output: "bab"
+Note: "aba" is also a valid answer.
+Example 2:
+
+Input: "cbbd"
+Output: "bb"
+
+"""
+
+
+
+
+"""
+def longest_palindrome(s):
+    """
+        Link: https://leetcode.com/problems/longest-palindromic-substring/ (LC 5)
+        Difficulty: Medium
+        Language: Python
+        Submission: Memory less than 100% and time faster than 98.45 % ( Runtime: 68 ms )
+
+        Question:
+            Given a string s, find the longest palindromic substring in s.
+            You may assume that the maximum length of s is 1000.
+
+        Sample Input 01:
+            s = "babad"
+        Sample Output 01:
+            longest_palindromic_substring = "bab" ("aba" is also considered)
+
+        Sample Input 02:
+            s = "cbbd"
+        Sample Output 02:
+            longest_palindromic_substring = "bb"
+
+        Approaches:
+            1) Brute Force - O(len(s)*len(s)*len(s))
+                 # Calculate all the substrings using two for loops - i from 0 to len(s) and j from i to len(s)
+                 # Check whether the substring from i to j is palindrome or not (s[i:j] == s[i:j][::-1])
+                 # If true and length of the substring is greater than the previous palindromic substring,
+                 # Update the result with the current substring
+                 # Return the result after the execution of the for loops
+            2) Expanding by the centre - O(len(s)*len(s))
+                # Loop i from 0 to len(s)
+                # Consider the longest palindromic substring is s[0] and set the max length to 1
+                # Find if a palindromic substring exists with i as a centre.
+                    # Case 1: For even length palindrome, the left and right values are set to i and i+1 with p as 0
+                        # Expand until left and right are in boundaries and s[left]==s[right], left -= 1, right += 1
+                        # Increase the length of the palindromic substring p by 2
+                        # If the length of the palindromic substring is greater than max length
+                        # Update the longest palindromic substring and max length accordingly (s[i-p//2+1:i+p//2+1])
+                    # Case 2: For odd length palindrome, the left and right values are set to i-1, i+1 with p as 1
+                        # Expand until left and right are in boundaries and s[left]==s[right], left -=1, right += 1
+                        # Increase the length of the palindromic substring p by 2
+                        # If the length of the palindromic substring is greater than max length
+                        # Update the longest palindromic substring and max length accordingly (s[i-p//2:i+p//2+1])
+                # Return the longest palindromic substring
+            3) Manacher's Algorithm - O(len(s)) - https://www.youtube.com/watch?v=nbTSfrEfo6M
+    """
+    # Convert the string to odd length by adding # after every character, and also $, % to mark the beginning and ending
+    # of the string. Ex: aba -> $#a#b#a#%
+    modified_string = ''
+    for ch in s:
+        modified_string += '#' + ch
+    modified_string = '$' + modified_string + '#%'
+
+    ps_lengths = [0] * len(modified_string)  # ps_lengths stands for palindromic substring lengths
+    centre, right = 0, 0
+
+    for i in range(1, len(modified_string)-1):  # Because we have to ignore the $, %
+        # The character at index i, could be a part of a longest palindromic substring, in that case it finds the mirror
+        # of the character on the left side of the centre.
+        mirror = 2 * centre - i
+
+        # Calculate the minimum palindromic substrings length, if they are in the range of longest palindromic substring
+        if i < right:
+            ps_lengths[i] = min(right-i, ps_lengths[mirror])
+
+        while modified_string[i+(1+ps_lengths[i])] == modified_string[i-(1+ps_lengths[i])]:
+            ps_lengths[i] += 1
+
+        # If the palindromic substring with centre i has expanded over the right of the longest palindrome with centre c
+        if i+ps_lengths[i] > right:
+            centre = i
+            right = i + ps_lengths[i]
+
+    # Find the index of the max length
+    max_length = max(ps_lengths)
+    max_index = ps_lengths.index(max_length)
+    longest_palindromic_substring = modified_string[max_index-max_length:max_index+max_length].replace('#', '')
+    return longest_palindromic_substring
+"""

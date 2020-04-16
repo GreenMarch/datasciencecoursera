@@ -18,7 +18,6 @@ class NumMatrix:
 # param_1 = obj.sumRegion(row1,col1,row2,col2)
 
 # The idea is simple, just precompute sums for all matrices with (0, 0) as top left corner and (i, j) as bottom right corner. There are O(n^2) of these matrices, so we store them in a 2D table. In order to make code simpler, I add an extra column and row, filled with 0.
-
 """
 304. Range Sum Query 2D - Immutable
 Medium

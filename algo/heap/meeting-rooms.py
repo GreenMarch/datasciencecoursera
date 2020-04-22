@@ -1,9 +1,9 @@
-import heapq
+from heapq import nlargest, heappush
 class Solution:
     def canAttendMeetings(self, intervals: List[List[int]]) -> bool:
         h = []
         for i in sorted(intervals):
-            if h == [] or heapq.nlargest(1, h)[0] <= i[0]:
+            if h == [] or nlargest(1, h)[0] <= i[0]:
                 heappush(h, i[1])
         if len(h) == len(intervals):
             return True

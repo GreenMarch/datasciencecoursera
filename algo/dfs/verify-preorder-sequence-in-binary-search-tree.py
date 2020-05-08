@@ -1,6 +1,10 @@
 # https://leetcode.com/problems/verify-preorder-sequence-in-binary-search-tree/discuss/469009/Python-simple-stack-O(n)-for-time-and-space
 class Solution:
-    def verifyPreorder(self, preorder: List[int]) -> bool:
+    def verifyPreorder(self, preorder):
+        """
+        :param preorder: : List[int]
+        :return:  -> bool
+        """
 
         chk, stack = None, []
         for n in preorder:
@@ -13,6 +17,9 @@ class Solution:
             print("stack",stack)
         return True
 
+inputdata = [5,2,1,3,6]
+res = Solution().verifyPreorder(inputdata)
+print(res)
 """
 255. Verify Preorder Sequence in Binary Search Tree
 Medium

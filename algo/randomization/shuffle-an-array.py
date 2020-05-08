@@ -1,3 +1,4 @@
+import random
 class Solution:
 
     def __init__(self, nums: List[int]):

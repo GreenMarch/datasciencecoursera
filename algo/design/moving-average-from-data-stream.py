@@ -32,3 +32,26 @@ param_3 = obj.next(30)
 param_4 = obj.next(40)
 
 print(param_1, param_2, param_3, param_4)
+
+"""
+346. Moving Average from Data Stream
+Easy
+
+507
+
+54
+
+Add to List
+
+Share
+Given a stream of integers and a window size, calculate the moving average of all integers in the sliding window.
+
+Example:
+
+MovingAverage m = new MovingAverage(3);
+m.next(1) = 1
+m.next(10) = (1 + 10) / 2
+m.next(3) = (1 + 10 + 3) / 3
+m.next(5) = (10 + 3 + 5) / 3
+
+"""

@@ -36,11 +36,11 @@ class HitCounter(object):
             startTime = self.timestamps[i]
 
             if timestamp - startTime < 300:
-
+                print(timestamp - startTime)
                 hitCount += self.timestampHitMap[startTime]
 
                 startIdx = i
-                break
+                # break
             else:
                 if startTime in self.timestampHitMap:
                     del self.timestampHitMap[startTime]
@@ -53,8 +53,6 @@ obj = HitCounter()
 timestamp_list = [1,1,2,2,3,3,3,100,100]
 for timestamp in timestamp_list:
     obj.hit(timestamp)
-
-
 
 param_3 = obj.getHits(3)
 print(param_3)

@@ -75,6 +75,6 @@ logger.shouldPrintMessage(11,"foo"); returns true;
 obj = Logger()
 
 # ["Logger","shouldPrintMessage","shouldPrintMessage","shouldPrintMessage","shouldPrintMessage","shouldPrintMessage","shouldPrintMessage"]
-for (timestamp,message) in [[1,"foo"],[2,"bar"],[3,"foo"],[8,"bar"],[10,"foo"],[11,"foo"]]:
+for (timestamp, message) in [[1,"foo"],[2,"bar"],[3,"foo"],[8,"bar"],[10,"foo"],[11,"foo"]]:
     param_1 = obj.shouldPrintMessage(timestamp,message)
     print(param_1)

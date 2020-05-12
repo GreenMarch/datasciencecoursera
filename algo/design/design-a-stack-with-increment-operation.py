@@ -22,7 +22,8 @@ class CustomStack:
         :param val:
         :return:
         """
-        # stk = [3,1,2]
+        # stk = [3,   1,  2]
+        # idx = [-3, -2, -1]
         # k = 4
         # val = 1
         #
